@@ -8,7 +8,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new ClipRectDemo(this));
+        setContentView(new OverdrawDemo(this));
     }
 
 }

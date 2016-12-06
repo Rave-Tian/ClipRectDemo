@@ -13,16 +13,29 @@ import android.view.View;
 public class OverdrawDemo extends View {
     private Bitmap[] mCards = new Bitmap[3];
 
-    private int[] mIngId = new int[]{R.drawable.user_usericon, R.drawable.user_vipicon, R.drawable.user_vipiconnormal};
+    private int[] mIngId = new int[]{R.drawable.icon_a, R.drawable.icon_k, R.drawable.icon_q};
 
     public OverdrawDemo(Context context) {
         super(context);
+        initBitmap();
+    }
 
+    public OverdrawDemo(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initBitmap();
+    }
+
+    public OverdrawDemo(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        initBitmap();
+    }
+
+    private void initBitmap() {
         Bitmap bitmap = null;
         for (int i = 0; i < mCards.length; i++) {
             bitmap = BitmapFactory.decodeResource(getResources(), mIngId[i]);
 //            创建缩放图
-//            mCards[i] = Bitmap.createScaledBitmap(bitmap, 400, 600, false);
+            mCards[i] = Bitmap.createScaledBitmap(bitmap, 400, 600, false);
             mCards[i] = bitmap;
         }
 
@@ -34,11 +47,10 @@ public class OverdrawDemo extends View {
         super.onDraw(canvas);
         canvas.save();
         canvas.translate(120, 0);
-//        for (Bitmap bm : mCards) {
-//            canvas.translate(120, 0);
-//            canvas.drawBitmap(bm, 0, 0, null);
-//        }
-
+/*        for (Bitmap bm : mCards) {
+            canvas.translate(120, 0);
+            canvas.drawBitmap(bm, 0, 0, null);
+        }*/
         for (int i = 0; i < mCards.length; i++) {
             canvas.translate(120, 0);
             canvas.save();
